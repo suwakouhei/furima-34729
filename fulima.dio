@@ -66,7 +66,7 @@
                 <mxCell id="22" value="email&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
                     <mxGeometry x="220" y="100" width="40" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" value="use_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                <mxCell id="34" value="user_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
                     <mxGeometry x="135" y="420" width="50" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="credit card" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
