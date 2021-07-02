@@ -35,6 +35,8 @@
 | item_price            | integer       | null: false                      |
 | user                  | references    | null: false, foreign_key :true   |
 
+### Association
+
 - belongs_to :user
 - has_one :purchase
 
@@ -46,12 +48,14 @@
 | user                  | references    | null: false, foreign_key :true   |
 | list                  | references    | null: false, foreign_key :true   |
 
+### Association
+
 - belongs_to :user
 - belongs_to :list
 - has_one :street_address
 
 
-## street_addressテーブル
+## street_addressesテーブル
 
 | Column                | Type          | Options                          |
 | postal_code           | string        | null: false                      |
@@ -61,5 +65,7 @@
 | building_name         | string        |                                  |
 | phone_number          | string        | null: false                      |
 | purchase              | references    | null: false, foreign_key :true   |
+
+### Association
 
 - belongs_to :purchase
