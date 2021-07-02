@@ -28,10 +28,10 @@
 | item_name             | string        | null: false                      |
 | item_description      | string        | null: false                      |
 | item_category_id      | integer       | null: false                      |
-| item_status           | string        | null: false                      |
-| delivery_burden       | string        | null: false                      |
-| prefectures           | string        | null: false                      |
-| shipping_days         | string        | null: false                      |
+| item_status           | integer       | null: false                      |
+| delivery_burden       | integer       | null: false                      |
+| prefectures           | integer       | null: false                      |
+| shipping_days         | integer       | null: false                      |
 | item_price            | integer       | null: false                      |
 | user                  | references    | null: false, foreign_key :true   |
 
@@ -43,8 +43,8 @@
 
 | Column                | Type          | Options                          |
 |-----------------------|---------------|----------------------------------|
-| delivery              | string        | null: false                      |
 | user                  | references    | null: false, foreign_key :true   |
+| list                  | references    | null: false, foreign_key :true   |
 
 - belongs_to :user
 - belongs_to :list
@@ -54,12 +54,12 @@
 ## street_addressテーブル
 
 | Column                | Type          | Options                          |
-| postal_code           | integer       | null: false                      |
-| prefectures           | string        | null: false                      |
+| postal_code           | string        | null: false                      |
+| prefectures           | integer       | null: false                      |
 | municipality          | string        | null: false                      |
 | address               | integer       | null: false                      |
 | building_name         | string        |                                  |
-| phone_number          | integer       | null: false                      |
+| phone_number          | string        | null: false                      |
 | purchase              | references    | null: false, foreign_key :true   |
 
 - belongs_to :purchase
