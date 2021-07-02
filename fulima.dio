@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="csA0tiSPY5vQp-li3ldF" name="ページ1">
-        <mxGraphModel dx="728" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="994" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -77,6 +77,36 @@
                 </mxCell>
                 <mxCell id="37" value="user_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
                     <mxGeometry x="495" y="380" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="street_addressテーブル" style="swimlane;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="20" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="building_name" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="43">
+                    <mxGeometry x="90" y="40" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="postal_code&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="60" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="prefectures" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="100" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="municipality" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="140" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="adress" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="575" y="180" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="phone_number" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="100" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="" style="endArrow=classic;startArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="600" y="400" as="sourcePoint"/>
+                        <mxPoint x="680" y="220" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="680" y="400"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
