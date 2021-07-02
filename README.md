@@ -12,7 +12,7 @@
 | last_name(katakana)   | string        | null: false                  |
 | first_name(katakana)  | string        | null: false                  |
 | last_name             | string        | null: false                  |
-| date              | integer       | null: false                      |
+| birthday              | date          | null: false                  |
 
 
 ### Association
@@ -26,10 +26,11 @@
 | Column                | Type          | Options                          |
 |-----------------------|---------------|----------------------------------|
 | item_name             | string        | null: false                      |
-| item_category         | string        | null: false                      |
+| item_description      | string        | null: false                      |
+| item_category_id      | integer       | null: false                      |
 | item_status           | string        | null: false                      |
 | delivery_burden       | string        | null: false                      |
-| shipment_source       | string        | null: false                      |
+| prefectures           | string        | null: false                      |
 | shipping_days         | string        | null: false                      |
 | item_price            | integer       | null: false                      |
 | user                  | references    | null: false, foreign_key :true   |
@@ -47,6 +48,7 @@
 
 - belongs_to :user
 - belongs_to :list
+- has_one :street_address
 
 
 ## street_addressテーブル
@@ -58,3 +60,6 @@
 | address               | integer       | null: false                      |
 | building_name         | string        |                                  |
 | phone_number          | integer       | null: false                      |
+| purchase              | references    | null: false, foreign_key :true   |
+
+- belongs_to :purchase
