@@ -3,13 +3,16 @@
 
 ## usersテーブル
 
-| Column                | Type          | Options        |
-|-----------------------|---------------|----------------|
-| nickname              | string        | null: false    |
-| email                 | string        | null: false    |
-| password              | string        | null: false    |
-| name                  | string        | null: false    |
-| birthday              | integer       | null: false    |
+| Column                | Type          | Options                      |
+|-----------------------|---------------|------------------------------|
+| nickname              | string        | null: false                  |
+| email                 | string        | null: false, unique: true    |
+| encrypted_password    | string        | null: false                  |
+| first_name            | string        | null: false                  |
+| last_name(katakana)   | string        | null: false                  |
+| first_name(katakana)  | string        | null: false                  |
+| last_name             | string        | null: false                  |
+| date              | integer       | null: false                      |
 
 
 ### Association
@@ -17,26 +20,41 @@
 - has_many :lists
 - has_many :purchases
 
+
 ## listsテーブル
 
 | Column                | Type          | Options                          |
 |-----------------------|---------------|----------------------------------|
-| image                 | string        | null: false                      |
 | item_name             | string        | null: false                      |
-| delivery              | string        | null: false                      |
+| item_category         | string        | null: false                      |
+| item_status           | string        | null: false                      |
+| delivery_burden       | string        | null: false                      |
+| shipment_source       | string        | null: false                      |
+| shipping_days         | string        | null: false                      |
 | item_price            | integer       | null: false                      |
 | user                  | references    | null: false, foreign_key :true   |
 
-- belongs_to :users
-- has_one :purchases
+- belongs_to :user
+- has_one :purchase
+
 
 ## purchasesテーブル
 
 | Column                | Type          | Options                          |
 |-----------------------|---------------|----------------------------------|
-| credit_card           | integer       | null: false                      |
 | delivery              | string        | null: false                      |
 | user                  | references    | null: false, foreign_key :true   |
 
-- belongs_to :users
-- belongs_to :lists
+- belongs_to :user
+- belongs_to :list
+
+
+## street_addressテーブル
+
+| Column                | Type          | Options                          |
+| postal_code           | integer       | null: false                      |
+| prefectures           | string        | null: false                      |
+| municipality          | string        | null: false                      |
+| address               | integer       | null: false                      |
+| building_name         | string        |                                  |
+| phone_number          | integer       | null: false                      |
