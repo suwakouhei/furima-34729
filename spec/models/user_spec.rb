@@ -82,31 +82,52 @@ RSpec.describe User, type: :model do
       end
 
 
-      it "ユーザー本名は、名字と名前が存在しない" do
-        @user.first_name = ''
+      it "ユーザー本名に、名字が存在しないとき" do
         @user.last_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name can't be blank", "First name can't be blank")
+        expect(@user.errors.full_messages).to include("Last name can't be blank")
       end
 
-      it "ユーザー本名は、全角（漢字・ひらがな・カタカナ）での入力していないとき" do
-        @user.first_name = '12'
+      it "ユーザー本名に、名前が存在しないとき" do
+        @user.first_name = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name can't be blank")
+      end
+
+      it "名字に、全角（漢字・ひらがな・カタカナ）での入力していないとき" do
         @user.last_name = '12'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name is invalid", "First name is invalid")
+        expect(@user.errors.full_messages).to include("Last name is invalid")
       end
 
-      it "ユーザー本名のフリガナは、名字と名前が存在しない" do 
-        @user.first_name_katakana = ''
+      it "名前に、全角（漢字・ひらがな・カタカナ）での入力していないとき" do
+        @user.first_name = '12'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name is invalid")
+      end
+
+      it "名字のフリガナが存在しないとき" do 
         @user.last_name_katakana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name katakana can't be blank", "First name katakana can't be blank")
+        expect(@user.errors.full_messages).to include("Last name katakana can't be blank")
       end
 
-  it "ユーザー本名のフリガナは、全角（カタカナ）での入力していないとき" do
-        @user.first_name_katakana = 'すわ'
-        @user.last_name_katakana = 'こうへい'
+      it "名前のフリガナが存在しないとき" do 
+        @user.first_name_katakana = ''
         @user.valid?
+        expect(@user.errors.full_messages).to include("First name katakana can't be blank")
+      end
+
+       it "名字のフリガナに、全角（カタカナ）での入力していないとき" do
+        @user.last_name_katakana = 'すわ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name katakana is invalid")
+      end
+
+      it "名前のフリガナに、全角（カタカナ）での入力していないとき" do
+        @user.first_name_katakana = 'こうへい'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name katakana is invalid")
       end
 
       it "生年月日がそれぞれ選択されていないとき" do
