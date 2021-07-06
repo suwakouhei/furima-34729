@@ -8,6 +8,8 @@ class User < ApplicationRecord
          hira_kana_kanzi = /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
          kana = /\A[ァ-ヶー－]+\z/
 
+         has_many :lists
+
          validates :password,format: { with: VALID_PASSWORD_REGEX}
          
        with_options presence: true do
@@ -20,5 +22,4 @@ class User < ApplicationRecord
          validates :birthday
 
         end
-      end
-      
+  end
