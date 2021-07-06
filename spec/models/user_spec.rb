@@ -82,7 +82,6 @@ RSpec.describe User, type: :model do
       end
 
       it "パスワードは、確認用を含めて2回入力しないとき" do 
-        @user.password = 'aaaa1111'
         @user.password_confirmation = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
