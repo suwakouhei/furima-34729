@@ -9,7 +9,7 @@ class CreateLists < ActiveRecord::Migration[6.0]
       t.integer :prefectures_id, null: false
       t.integer :shipping_days_id, null: false
       t.integer :item_price, null: false
-
+      
 
       t.timestamps
     end
