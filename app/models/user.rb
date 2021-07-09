@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+         has_many :lists
+
          VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
          hira_kana_kanzi = /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
          kana = /\A[ァ-ヶー－]+\z/
-
-         has_many :lists
 
          validates :password,format: { with: VALID_PASSWORD_REGEX}
          
@@ -21,5 +21,5 @@ class User < ApplicationRecord
          validates :first_name_katakana, format: { with: kana}
          validates :birthday
 
-        end
+      end
   end
