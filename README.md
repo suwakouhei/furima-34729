@@ -30,8 +30,8 @@
 | item_category_id      | integer       | null: false                      |
 | item_status_id        | integer       | null: false                      |
 | delivery_burden_id    | integer       | null: false                      |
-| prefectures_id        | integer       | null: false                      |
-| shipping_days_id      | integer       | null: false                      |
+| prefecture_id         | integer       | null: false                      |
+| shipping_day_id       | integer       | null: false                      |
 | item_price            | integer       | null: false                      |
 | user                  | references    | null: false, foreign_key :true   |
 
