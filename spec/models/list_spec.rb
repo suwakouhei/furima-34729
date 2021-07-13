@@ -126,6 +126,13 @@ RSpec.describe List, type: :model do
         @list.valid?
         expect(@list.errors.full_messages).to include('User must exist')
       end
+
+      it '画像が紐付いていない場合は登録できない' do
+        @list.image = nil
+        @list.valid?
+        expect(@list.errors.full_messages).to include('Image must exist')
+      end
+
     end
   end
 end

@@ -8,9 +8,9 @@ class List < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day
 
-  hann_suu = /\A-?[0-9]+(\.[0-9]+)?\z/
 
   with_options presence: true do
+    validates :image
     validates :item_name
     validates :item_description
     validates :item_category_id
