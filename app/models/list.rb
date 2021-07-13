@@ -22,7 +22,7 @@ class List < ApplicationRecord
     validates :delivery_burden_id
     validates :prefecture_id
     validates :shipping_day_id
-    validates :item_price, format: { with: hann_suu}
+    validates :item_price, numericality: {only_integer: true}
 
 
 
