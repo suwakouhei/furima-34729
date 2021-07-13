@@ -1,18 +1,20 @@
 class ItemsController < ApplicationController
   def index
-    if user_signed_in?
-      redirect_to new_user_session
-    else
-      render :new
-    end
   end
-
+  
   def new
+
+    if user_signed_in?
+      
+    else
+      authenticate_user!
+    end
     @list = List.new
   end
 
   def create
     @list = List.new(list_params)
+
     if @list.save
       redirect_to root_path
 
