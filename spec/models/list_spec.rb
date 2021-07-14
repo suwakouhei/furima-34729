@@ -6,7 +6,7 @@ RSpec.describe List, type: :model do
   end
 
   describe '出品登録' do
-    context '新規登録がうまくいくとき' do
+    context '出品登録がうまくいくとき' do
       it 'item_nameとitem_description、item_category_idとitem_status_id,delivery_burden_idとprefecture_id、shipping_day_idとitem_priceが存在するとき' do
         expect(@list).to be_valid
       end
