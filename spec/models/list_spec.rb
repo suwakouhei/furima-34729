@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe List, type: :model do
   before do
     @list = FactoryBot.build(:list)
-    
   end
 
   describe '出品登録' do
@@ -111,7 +110,7 @@ RSpec.describe List, type: :model do
       end
 
       it '商品価格が299円以下では出品できない' do
-        @list.item_price = '289'
+        @list.item_price = 289
         @list.valid?
         expect(@list.errors.full_messages).to include('Item price must be greater than 299')
       end
