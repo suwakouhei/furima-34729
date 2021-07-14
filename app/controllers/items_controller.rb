@@ -1,14 +1,9 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user! , only: :new
   def index
   end
   
   def new
-
-    if user_signed_in?
-      
-    else
-      authenticate_user!
-    end
     @list = List.new
   end
 
@@ -30,4 +25,6 @@ class ItemsController < ApplicationController
     params.require(:list).permit(:image, :item_name, :item_description, :item_category_id, :item_status_id, :delivery_burden_id,
                                  :prefecture_id, :shipping_day_id, :item_price).merge(user_id: current_user.id)
   end
+
+
 end
