@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create]
   def index
+    @lists = List.all.order("created_at DSC")
   end
   
   def new
