@@ -116,7 +116,7 @@ RSpec.describe List, type: :model do
       end
 
       it '商品価格が10_000_000円以上では出品できない' do
-        @list.item_price = 10000000000
+        @list.item_price = 10_000_000_000
         @list.valid?
         expect(@list.errors.full_messages).to include('Item price must be less than 10000000')
       end
@@ -132,7 +132,6 @@ RSpec.describe List, type: :model do
         @list.valid?
         expect(@list.errors.full_messages).to include("Image can't be blank")
       end
-
     end
   end
 end
