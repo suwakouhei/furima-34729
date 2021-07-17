@@ -8,7 +8,6 @@ class List < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day
 
-
   with_options presence: true do
     validates :image
     validates :item_name

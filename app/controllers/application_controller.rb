@@ -15,9 +15,4 @@ class ApplicationController < ActionController::Base
                                       keys: [:nickname, :last_name, :first_name, :last_name_katakana, :first_name_katakana,
                                              :birthday])
   end
-
-
-
-
-
 end
