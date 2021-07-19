@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create,:edit,:update]
-  before_action :one_get_list, only: [:show,:edit,:update,:destroy]
-  before_action :move_to_root, only: [:edit,:destroy]
+  before_action :one_get_list, only: [:show,:edit,:update]
+  before_action :move_to_root, only: :edit
 
 
   def index
@@ -40,12 +40,6 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-
-  def destroy
-    @list.destroy
-    redirect_to root_path
-  end
-
 
   private
 
