@@ -25,13 +25,22 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @list = List.find(params[:id])
   end
-  
+
+  def update
+    @list = List.find(params[:id])
+    if @list.update(list_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
+  end
 
   private
 
   def list_params
-    params.require(:list,).permit(:image, :item_name, :item_description, :item_category_id, :item_status_id, :delivery_burden_id,
+    params.require(:list).permit(:image, :item_name, :item_description, :item_category_id, :item_status_id, :delivery_burden_id,
                                  :prefecture_id, :shipping_day_id, :item_price).merge(user_id: current_user.id)
   end
 end
