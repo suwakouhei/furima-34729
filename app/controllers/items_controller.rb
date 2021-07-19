@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :move_to_session, only: :edit
+  before_action :authenticate_user!, only: [:new, :create,:edit]
+  before_action :one_get_list, only: [:show,:edit,:update]
   before_action :move_to_root, only: :edit
+
+
   def index
     @lists = List.all.order('created_at DESC')
   end
@@ -23,15 +25,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id])
+    
   end
 
   def edit
-    @list = List.find(params[:id])
+    
   end
 
   def update
-    @list = List.find(params[:id])
+    
     if @list.update(list_params)
       redirect_to item_path
     else
@@ -46,17 +48,16 @@ class ItemsController < ApplicationController
                                  :prefecture_id, :shipping_day_id, :item_price).merge(user_id: current_user.id)
   end
 
-  def move_to_session
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end 
-  end
 
   def move_to_root
-    unless current_user == current_user.nickname
+    unless current_user == @list.user
       redirect_to root_path
     end 
   end
   
+  def one_get_list
+    @list = List.find(params[:id])
+  end
+
 
 end
