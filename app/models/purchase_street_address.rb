@@ -1,7 +1,8 @@
-class PurchaseStreetAdress
+class PurchaseStreetAddress
   include ActiveModel::Model
   attr_accessor :postal_code, :prefectures_id, :municipality, :address, :building_name, :phone_number, :list_id, :user_id
-
+  attr_accessor :token
+  
   with_options presence: true do
     validates :postal_code 
     validates :prefectures_id 
@@ -10,6 +11,7 @@ class PurchaseStreetAdress
     validates :phone_number
     validates :user_id
     validates :list_id
+    validates :token
   end
   def save
     purchase = Purchase.create(user_id: user_id,list_id: list_id)
