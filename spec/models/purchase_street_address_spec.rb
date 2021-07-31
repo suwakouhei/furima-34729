@@ -14,32 +14,36 @@ end
 
 context '内容に問題がある場合' do
 
-  it "tokenが空では登録できないこと" do
-    @purchase_street_address.token = nil
+  it "郵便番号が空では登録できないこと" do
+    @purchase_street_address.postal_code = ""
     @purchase_street_address.valid?
-    expect(@purchase_street_address.errors.full_messages).to include("Token can't be blank")
-  endit "tokenが空では登録できないこと" do
-    @purchase_street_address.token = nil
-    @purchase_street_address.valid?
-    expect(@purchase_street_address.errors.full_messages).to include("Token can't be blank")
-  endit "tokenが空では登録できないこと" do
-    @purchase_street_address.token = nil
-    @purchase_street_address.valid?
-    expect(@purchase_street_address.errors.full_messages).to include("Token can't be blank")
-  endit "tokenが空では登録できないこと" do
-    @purchase_street_address.token = nil
-    @purchase_street_address.valid?
-    expect(@purchase_street_address.errors.full_messages).to include("Token can't be blank")
-  endit "tokenが空では登録できないこと" do
-    @purchase_street_address.token = nil
-    @purchase_street_address.valid?
-    expect(@purchase_street_address.errors.full_messages).to include("Token can't be blank")
+    expect(@purchase_street_address.errors.full_messages).to include("Postal code can't be blank")
   end
-  it "tokenが空では登録できないこと" do
-    @purchase_street_address.token = nil
+  
+  it "都道府県が空では登録できないこと" do
+    @purchase_street_address.prefectures_id = ""
     @purchase_street_address.valid?
-    expect(@purchase_street_address.errors.full_messages).to include("Token can't be blank")
+    expect(@purchase_street_address.errors.full_messages).to include("Prefectures can't be blank")
   end
+  
+  it "市区町村が空では登録できないこと" do
+    @purchase_street_address.municipality = ""
+    @purchase_street_address.valid?
+    expect(@purchase_street_address.errors.full_messages).to include("Municipality can't be blank")
+  end
+  
+  it "番地が空では登録できないこと" do
+    @purchase_street_address.address = ""
+    @purchase_street_address.valid?
+    expect(@purchase_street_address.errors.full_messages).to include("Address can't be blank")
+  end
+  
+  it "tokenが空では登録できないこと" do
+    @purchase_street_address.phone_number = ""
+    @purchase_street_address.valid?
+    expect(@purchase_street_address.errors.full_messages).to include("Phone number can't be blank")
+  end
+
 end
 
 end

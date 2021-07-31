@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   def index
-    @purchase_address = PurchaseStreetAdress.new
+    @purchase_address = PurchaseStreetAddress.new
   end
   def create
-    @purchase_address = PurchaseStreetAdress.new(purchase_address_params)
+    @purchase_address = PurchaseStreetAddress.new(purchase_address_params)
     if @purchase_address.valid?
       pay_item
       @purchase_address.save
