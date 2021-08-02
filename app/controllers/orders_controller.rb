@@ -19,7 +19,7 @@ end
 private
 
 def purchase_address_params
-  params.require(:purchase_address).permit(:postal_code, :prefectures_id, :municipality, :address, :phone_number,:building_name).merge(user_id: current_user.id, list_id: current_list.id, token: params[:token])
+  params.require(:purchase_street_address).permit(:postal_code, :prefectures_id, :municipality, :address, :phone_number,:building_name).merge( token: params[:token])
 end
 
 def pay_item
