@@ -8,5 +8,6 @@ FactoryBot.define do
     phone_number { '09012345678' }
     user_id { 1 }
     list_id { 2 }
+    building_name {"柳"}
   end
 end

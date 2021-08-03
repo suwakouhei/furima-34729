@@ -9,6 +9,12 @@ RSpec.describe PurchaseStreetAddress, type: :model do
     it '全ての情報が保存ができるとき' do
       expect(@purchase_street_address).to be_valid
     end
+
+    it 'building_nameが空でも購入できる' do
+      @purchase_street_address.building_name = ''
+      expect(@purchase_street_address).to be_valid
+    end
+
   end
 
   context '内容に問題がある場合' do
@@ -40,6 +46,18 @@ RSpec.describe PurchaseStreetAddress, type: :model do
       @purchase_street_address.phone_number = ''
       @purchase_street_address.valid?
       expect(@purchase_street_address.errors.full_messages).to include("Phone number can't be blank")
+    end
+
+    it 'user_idが空だと購入できない' do
+      @purchase_street_address.user_id = ''
+      @purchase_street_address.valid?
+      expect(@purchase_street_address.errors.full_messages).to include("User can't be blank")
+    end
+
+    it 'list_idが空だと購入できない' do
+      @purchase_street_address.list_id = ''
+      @purchase_street_address.valid?
+      expect(@purchase_street_address.errors.full_messages).to include("List can't be blank")
     end
   end
 end
