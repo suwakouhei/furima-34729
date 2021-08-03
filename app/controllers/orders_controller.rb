@@ -2,6 +2,18 @@ class OrdersController < ApplicationController
   def index
     @list = List.find(params[:item_id])
     @purchase_address = PurchaseStreetAddress.new
+    if current_user == @list.user
+      redirect_to root_path
+    end
+    if @list.purchase != nil 
+      redirect_to root_path
+    end 
+    if user_signed_in?
+      
+    else
+      redirect_to root_path
+    end
+
   end
 
   def create
