@@ -1,23 +1,14 @@
 class OrdersController < ApplicationController
-  def index
-    @list = List.find(params[:item_id])
-    @purchase_address = PurchaseStreetAddress.new
-    if current_user == @list.user
-      redirect_to root_path
-    end
-    if @list.purchase != nil 
-      return root_path
-    end 
-    if user_signed_in?
-      
-    else
-      redirect_to  new_user_session_path
-    end
+  before_action :authenticate_user!, only: [:index]
+  before_action :one_get_list, only: [:index, :create]
+  before_action :purchase_present_back, only: [:index]
 
+
+  def index
+    @purchase_address = PurchaseStreetAddress.new
   end
 
   def create
-    @list = List.find(params[:item_id])
     @purchase_address = PurchaseStreetAddress.new(purchase_address_params)
     if @purchase_address.valid?
       pay_item
@@ -27,7 +18,6 @@ class OrdersController < ApplicationController
       render :index
     end
   end
-end
 
 private
 
@@ -44,4 +34,17 @@ def pay_item
     card: purchase_address_params[:token],
     currency: 'jpy'
   )
+end
+
+def one_get_list
+  @list = List.find(params[:item_id])
+end
+
+def purchase_present_back
+  if (current_user == @list.user) && (@list.purchase != nil )
+    redirect_to root_path
+  end
+
+end
+
 end
