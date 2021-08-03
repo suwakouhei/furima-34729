@@ -27,6 +27,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if @list.purchase != nil 
+      redirect_to root_path
+    end
+    
+
   end
 
   def update
