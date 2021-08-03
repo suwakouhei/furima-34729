@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :one_get_list, only: [:show, :edit, :update, :destroy]
   before_action :move_to_root, only: [:edit, :destroy]
+  before_action :purchase_present, only: [:edit, :update, :destroy]
 
   def index
     @lists = List.all.order('created_at DESC')
@@ -27,11 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @list.purchase != nil 
-      redirect_to root_path
-    end
-    
-
   end
 
   def update
@@ -61,4 +57,12 @@ class ItemsController < ApplicationController
   def one_get_list
     @list = List.find(params[:id])
   end
+
+  def purchase_present
+    if @list.purchase != nil 
+    redirect_to root_path
+    end
+  end
+
 end
+
