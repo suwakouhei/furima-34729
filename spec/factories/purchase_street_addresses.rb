@@ -6,8 +6,6 @@ FactoryBot.define do
     municipality { '横浜市' }
     address { '青山1-1-1' }
     phone_number { '09012345678' }
-    user_id { 1 }
-    list_id { 2 }
     building_name { '柳' }
   end
 end
