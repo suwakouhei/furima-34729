@@ -59,10 +59,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase_present
-    if @list.purchase != nil 
-    redirect_to root_path
-    end
+    redirect_to root_path unless @list.purchase.nil?
   end
-
 end
-

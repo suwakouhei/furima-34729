@@ -14,7 +14,6 @@ RSpec.describe PurchaseStreetAddress, type: :model do
       @purchase_street_address.building_name = ''
       expect(@purchase_street_address).to be_valid
     end
-
   end
 
   context '内容に問題がある場合' do
@@ -27,8 +26,7 @@ RSpec.describe PurchaseStreetAddress, type: :model do
     it '郵便番号はハイフン無しでは登録できないこと' do
       @purchase_street_address.postal_code = '1650033'
       @purchase_street_address.valid?
-      expect(@purchase_street_address.errors.full_messages).to include("Postal code is invalid")
-      
+      expect(@purchase_street_address.errors.full_messages).to include('Postal code is invalid')
     end
 
     it '都道府県が空では登録できないこと' do
@@ -64,15 +62,14 @@ RSpec.describe PurchaseStreetAddress, type: :model do
     it '電話番号は11桁以内でないと購入できないこと' do
       @purchase_street_address.phone_number = '090123456789'
       @purchase_street_address.valid?
-      expect(@purchase_street_address.errors.full_messages).to include("Phone number is invalid")
+      expect(@purchase_street_address.errors.full_messages).to include('Phone number is invalid')
     end
 
     it '電話番号は半角数字のみでないと購入できないこと' do
       @purchase_street_address.phone_number = '０９０１２３４５６７８'
       @purchase_street_address.valid?
-      expect(@purchase_street_address.errors.full_messages).to include("Phone number is invalid")
-  end
-
+      expect(@purchase_street_address.errors.full_messages).to include('Phone number is invalid')
+    end
 
     it 'tokenが空では登録できないこと' do
       @purchase_street_address.phone_number = ''
