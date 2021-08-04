@@ -4,7 +4,7 @@ RSpec.describe PurchaseStreetAddress, type: :model do
   before do
     user = @user
     list = @list
-    @purchase_street_address = FactoryBot.build(:purchase_street_address, user_id: :user , list_id: :list)
+    @purchase_street_address = FactoryBot.build(:purchase_street_address, user_id: :user, list_id: :list)
   end
 
   context '内容に問題ない場合' do
