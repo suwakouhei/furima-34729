@@ -37,6 +37,12 @@ RSpec.describe PurchaseStreetAddress, type: :model do
       expect(@purchase_street_address.errors.full_messages).to include("Prefectures can't be blank")
     end
 
+    it '都道府県の項目で1以上のidが選択されないと保存できないこと' do
+      @purchase_street_address.prefectures_id = '1'
+      @purchase_street_address.valid?
+      expect(@purchase_street_address.errors.full_messages).to include("Prefectures can't be blank")
+    end
+
     it '市区町村が空では登録できないこと' do
       @purchase_street_address.municipality = ''
       @purchase_street_address.valid?
