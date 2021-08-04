@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create,:edit,:update]
-  before_action :one_get_list, only: [:show,:edit,:update,:destroy]
-  before_action :move_to_root, only: [:edit,:destroy]
-
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :one_get_list, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_root, only: [:edit, :destroy]
+  before_action :purchase_present, only: [:edit, :update, :destroy]
 
   def index
     @lists = List.all.order('created_at DESC')
@@ -25,15 +25,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-    
   end
 
   def update
-    
     if @list.update(list_params)
       redirect_to item_path
     else
@@ -46,7 +43,6 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
   def list_params
@@ -54,16 +50,15 @@ class ItemsController < ApplicationController
                                  :prefecture_id, :shipping_day_id, :item_price).merge(user_id: current_user.id)
   end
 
-
   def move_to_root
-    unless current_user == @list.user
-      redirect_to root_path
-    end 
+    redirect_to root_path unless current_user == @list.user
   end
-  
+
   def one_get_list
     @list = List.find(params[:id])
   end
 
-
+  def purchase_present
+    redirect_to root_path unless @list.purchase.nil?
+  end
 end
