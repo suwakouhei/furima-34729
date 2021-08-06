@@ -28,10 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user ==@list.purchase.nil?
-      redirect_to root_path
-    end
-    
+
   end
 
   def update
@@ -55,7 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_root
-    unless  current_user == @list.user || current_user 
+    if  current_user != @list.user 
       redirect_to root_path 
     end
   end
