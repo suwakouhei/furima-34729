@@ -41,8 +41,11 @@ class OrdersController < ApplicationController
 
   def purchase_present_back
     if current_user == @list.user
+      if current_user ==@list.purchase.nil
       if @list.purchase.nil?
         redirect_to root_path 
+      end
+      
       end
     end
   end

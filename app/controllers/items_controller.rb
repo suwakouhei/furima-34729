@@ -28,6 +28,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if current_user ==@list.purchase.nil?
+      redirect_to root_path
+    end
     
   end
 
